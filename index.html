@@ -1,0 +1,481 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>腾讯校招 · AI求职智能匹配工作台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <div class="hero-art" aria-hidden="true"></div>
+        <div class="hero-shade" aria-hidden="true"></div>
+
+        <header class="topbar">
+          <a class="brand" href="#" aria-label="腾讯校招">
+            <span class="brand-text">Tencent 腾讯校招</span>
+          </a>
+          <nav aria-label="页面导航">
+            <a class="active-nav" href="#" id="homeNav">首页</a>
+            <a href="#radar" id="radarNav">岗位雷达</a>
+            <a href="#resume-diagnosis" id="resumeDiagnosisLink">简历诊断</a>
+            <a href="#hr" id="hrNav">岗位管理</a>
+            <button class="login-entry" type="button" id="openLogin">登录</button>
+            <button class="logout-entry" type="button" id="logoutBtn" hidden>退出登录</button>
+          </nav>
+        </header>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <div class="headline-row">
+              <h1>让世界看到你的影响力</h1>
+            </div>
+            <p class="hero-intro">
+              腾讯校招面向全球青年人才，连接产品、技术、运营、数据、设计等多元岗位。这个 AI 求职智能体帮助学生快速理解自身优势，发现适配岗位，并生成更贴合目标 JD 的简历优化建议。
+            </p>
+            <div class="hero-metrics" aria-label="关键指标">
+              <span><strong>简历</strong>一键解析</span>
+              <span><strong>画像</strong>自动生成</span>
+              <span><strong>JD</strong>定向优化</span>
+            </div>
+          </section>
+        </div>
+
+        <section class="upload-card" aria-labelledby="upload-title">
+          <div class="upload-drop" id="uploadDrop" tabindex="0" role="button">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <h2 id="upload-title">拖入简历，开启腾讯校招智能辅导</h2>
+            <p>支持 PDF / Word 简历上传，自动识别专业背景、硬技能、实习项目和职业偏好。</p>
+            <input id="resumeFile" class="file-input" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+            <div class="upload-actions">
+              <button class="primary-btn" type="button" id="chooseResume">选择简历文件</button>
+              <button class="secondary-light-btn" type="button" id="startBtn">生成求职画像</button>
+            </div>
+            <p class="file-status" id="fileStatus">尚未选择文件</p>
+          </div>
+          <div class="mini-form">
+            <label>
+              意向城市
+              <select id="citySelect">
+                <option>深圳</option>
+              </select>
+            </label>
+            <label>
+              职业兴趣
+              <select id="interestSelect">
+                <option>产品/运营</option>
+                <option>研发</option>
+                <option>数据分析</option>
+                <option>市场</option>
+                <option>HR</option>
+                <option>用户研究</option>
+                <option>设计</option>
+                <option>算法</option>
+              </select>
+            </label>
+            <label>
+              期望薪资
+              <select id="salarySelect">
+                <option>150元以下/天</option>
+                <option>150-200/天</option>
+                <option>200-300/天</option>
+                <option>250-350/天</option>
+                <option>300-500/天</option>
+                <option>500元以上/天</option>
+                <option>6k以下/月</option>
+                <option>6k-8k/月</option>
+                <option>8k-12k/月</option>
+                <option>12k-18k/月</option>
+                <option>18k-25k/月</option>
+                <option>25k以上/月</option>
+              </select>
+            </label>
+          </div>
+        </section>
+      </section>
+
+      <section class="reasons-section" id="homeReasons" aria-labelledby="reasons-title">
+        <div class="section-title">
+          <h2 id="reasons-title">加入腾讯的“N个理由”</h2>
+        </div>
+        <div class="reason-grid">
+          <article class="reason-card">
+            <h3>关心成长</h3>
+            <p>腾讯注重人才培养，有完善的导师制度、人才培养体系及灵活的内部转岗机制，引领你发现更多可能。</p>
+          </article>
+          <article class="reason-card">
+            <h3>自由开放</h3>
+            <p>自由包容的文化氛围让你的声音会被认真聆听，在这里，你遇到的不只是同事，更是并肩作战的伙伴。</p>
+          </article>
+          <article class="reason-card">
+            <h3>享受办公</h3>
+            <p>舒适的办公环境、健身器械、贴心宵夜与高效工作支持，让你把精力留给真正重要的创造。</p>
+          </article>
+          <article class="reason-card">
+            <h3>完善福利</h3>
+            <p>弹性的工作时间、充足假期、有竞争力的薪酬与激励体系，用更完整的保障支持你的长期发展。</p>
+          </article>
+          <article class="reason-card">
+            <h3>弹性灵活</h3>
+            <p>工作不打卡，弹性工作时间是信任，也是效率。充分休息之后，才能更好地投入创造。</p>
+          </article>
+          <article class="reason-card">
+            <h3>社会价值</h3>
+            <p>我们与社会紧密联系，用科技践行向善使命。如果你有一样的信念，欢迎加入腾讯，影响更多人。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="resume-diagnosis-panel" id="resume-diagnosis" hidden>
+        <div class="section-title row">
+          <div>
+            <p class="eyebrow">Resume Diagnosis</p>
+            <h2>简历诊断与改写建议</h2>
+            <p class="section-subtitle">上传 PDF / Word 简历后，系统会提炼教育背景、技能关键词，并用 STAR 法则总结相关经历。</p>
+          </div>
+          <span class="status-pill" id="diagnosisStatus">等待上传简历</span>
+        </div>
+
+        <div class="diagnosis-workbench">
+          <article class="diagnosis-upload-card">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <h3>上传简历生成诊断</h3>
+            <p>支持 PDF / Word。系统会解析简历文本，生成关键词提炼、STAR 经历总结和腾讯校招适配建议。</p>
+            <input id="diagnosisFile" class="file-input" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+            <div class="upload-actions">
+              <button class="primary-btn" type="button" id="chooseDiagnosisResume">选择简历文件</button>
+              <button class="secondary-btn" type="button" id="runDiagnosis">生成诊断结果</button>
+            </div>
+            <p class="file-status" id="diagnosisFileStatus">尚未选择文件</p>
+          </article>
+
+        </div>
+
+        <div class="resume-report" id="resumeReport" hidden>
+          <div class="report-score">
+            <strong id="resumeReportScore">86%</strong>
+            <span>腾讯校招初筛友好度</span>
+          </div>
+
+          <div class="report-grid">
+            <article>
+              <h3>关键词提炼</h3>
+              <div class="keyword-groups" id="keywordTags">
+                <section>
+                  <h4>教育背景 / 语言能力</h4>
+                  <div class="report-tags neutral">
+                    <span>教育背景：硕士</span>
+                    <span>语言能力：CET-6</span>
+                  </div>
+                </section>
+                <section>
+                  <h4>已覆盖</h4>
+                  <div class="report-tags covered">
+                    <span>Excel</span>
+                    <span>竞品分析</span>
+                  </div>
+                </section>
+                <section>
+                  <h4>待加强</h4>
+                  <div class="report-tags missing">
+                    <span>SQL</span>
+                    <span>转化率</span>
+                    <span>项目结果</span>
+                  </div>
+                </section>
+              </div>
+            </article>
+            <article>
+              <h3>STAR法则经历总结</h3>
+              <div class="star-grid" id="starSummary">
+                <section>
+                  <strong>S</strong>
+                  <span>情境</span>
+                  <p>面向用户增长活动。</p>
+                </section>
+                <section>
+                  <strong>T</strong>
+                  <span>任务</span>
+                  <p>负责活动推进与复盘。</p>
+                </section>
+                <section>
+                  <strong>A</strong>
+                  <span>行动</span>
+                  <p>使用 Excel / SQL 分析用户行为数据。</p>
+                </section>
+                <section>
+                  <strong>R</strong>
+                  <span>结果</span>
+                  <p>定位转化流失环节并推动后续优化。</p>
+                </section>
+              </div>
+            </article>
+            <article class="fit-advice-card">
+              <h3>腾讯校招适配建议</h3>
+              <p id="tencentFitAdvice">如果投递产品运营、用户研究、内容生态类岗位，建议把“用户洞察、活动转化、数据复盘、协作推进”放在经历前两条。</p>
+            </article>
+          </div>
+
+          <div class="rewrite-compare resume-rewrite">
+            <article>
+              <h3>原简历表述</h3>
+              <p id="resumeRewriteBefore">负责用户增长活动，参与数据分析和项目复盘。</p>
+            </article>
+            <article class="after-card">
+              <h3>建议改写</h3>
+              <p id="resumeRewriteAfter">围绕用户增长目标策划并执行校园社群活动，使用 Excel / SQL 对用户行为数据进行清洗和复盘，定位转化流失环节，推动活动报名转化率提升 15%。</p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="workspace" id="radar" hidden>
+        <aside class="profile-panel" aria-labelledby="profile-title">
+          <div class="section-title">
+            <p class="eyebrow">Candidate Profile</p>
+            <h2 id="profile-title">我的求职画像</h2>
+          </div>
+
+          <div class="profile-score">
+            <p id="profileSummary">硕士背景，具备互联网运营、竞品分析、数据复盘和跨部门协作经历，适合产品运营、用户增长和数据分析类岗位。</p>
+          </div>
+
+          <div class="tag-group">
+            <h3>学历背景</h3>
+            <div id="educationTags"></div>
+          </div>
+          <div class="tag-group">
+            <h3>硬技能</h3>
+            <div id="hardSkills"></div>
+          </div>
+          <div class="tag-group">
+            <h3>实习经历</h3>
+            <div id="experienceTags"></div>
+          </div>
+          <div class="tag-group">
+            <h3>软实力</h3>
+            <div id="softSkills"></div>
+          </div>
+        </aside>
+
+        <section class="radar-panel" aria-labelledby="radar-title">
+          <div class="section-title row">
+            <div>
+              <p class="eyebrow">Job Matching Radar</p>
+              <h2 id="radar-title">岗位智能雷达</h2>
+              <p class="section-subtitle">有鹅选鹅：优先推荐更适配学生背景、兴趣和腾讯业务场景的岗位。</p>
+            </div>
+            <span class="status-pill" id="statusPill">已扫描 126 个岗位</span>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="岗位梯度">
+            <button class="tab active" type="button" data-tier="core">核心推荐</button>
+            <button class="tab" type="button" data-tier="safe">稳妥保底</button>
+            <button class="tab" type="button" data-tier="explore">跨界探索</button>
+          </div>
+
+          <div class="job-grid" id="jobGrid"></div>
+        </section>
+      </section>
+
+      <section class="hr-console" id="hr" aria-labelledby="hr-title" hidden>
+        <div class="section-title row">
+          <div>
+            <p class="eyebrow">Internal Console</p>
+            <h2 id="hr-title">腾讯内部岗位数据管理</h2>
+            <p class="section-subtitle">供内部工作人员上传岗位池、维护JD、配置推荐规则，让学生端的岗位匹配结果保持实时、准确、可解释。</p>
+          </div>
+          <span class="status-pill">内部权限入口</span>
+        </div>
+
+        <div class="hr-grid">
+          <article class="hr-upload-card">
+            <h3>批量上传岗位数据</h3>
+            <p>支持 Excel / CSV 岗位表，系统会自动解析岗位名称、BG/部门、城市、职责、要求、关键词和投递链接。</p>
+            <div class="hr-drop" id="hrDrop">
+              <span>+</span>
+              <strong>拖入岗位表，或点击上传</strong>
+              <small>推荐字段：岗位名称、部门、城市、JD、技能关键词、截止时间</small>
+            </div>
+            <input id="jobDataFile" class="file-input" type="file" accept=".xlsx,.xls,.csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv" />
+            <p class="file-status" id="jobUploadStatus">尚未上传岗位表</p>
+            <button class="secondary-btn" type="button" id="simulateUpload">上传 Excel / CSV 岗位表</button>
+            <button class="primary-btn confirm-upload-btn" type="button" id="confirmJobUpload" disabled>确认上传并入库</button>
+          </article>
+
+          <article class="hr-jd-card">
+            <h3>单个岗位结构化录入</h3>
+            <div class="jd-form-grid">
+              <label>
+                岗位名称
+                <input id="jdTitleInput" type="text" value="腾讯产品运营实习生" />
+              </label>
+              <label>
+                学历要求
+                <select id="jdEducationInput">
+                  <option>本科及以上</option>
+                  <option>硕士优先</option>
+                  <option>不限学历</option>
+                </select>
+              </label>
+              <label>
+                薪资
+                <input id="jdSalaryInput" type="text" value="200-300/天" />
+              </label>
+              <label>
+                工作地点
+                <select id="jdCityInput">
+                  <option>深圳</option>
+                  <option>北京</option>
+                  <option>上海</option>
+                  <option>广州</option>
+                  <option>杭州</option>
+                </select>
+              </label>
+              <label>
+                硬技能
+                <input id="jdHardSkillInput" type="text" value="SQL、数据复盘、用户增长、竞品分析" />
+              </label>
+              <label>
+                软素质
+                <input id="jdSoftSkillInput" type="text" value="项目推进、结构化表达、跨部门沟通" />
+              </label>
+              <label class="wide">
+                岗位职责
+                <textarea id="jdResponsibilityInput">负责内容生态活动运营、用户增长策略和数据复盘，协同产品、设计和数据团队推进活动落地。</textarea>
+              </label>
+            </div>
+            <button class="primary-btn" type="button" id="parseJd">AI解析并入库</button>
+          </article>
+
+          <article class="hr-library-card">
+            <h3>岗位库概览</h3>
+            <div class="library-stats">
+              <span><strong id="jobCount">126</strong>开放岗位</span>
+              <span><strong>18</strong>业务部门</span>
+              <span><strong>5</strong>重点城市</span>
+            </div>
+            <div class="job-filters" aria-label="岗位筛选">
+              <label>
+                岗位名称
+                <input id="jobNameFilter" type="search" placeholder="如：产品运营" />
+              </label>
+              <label>
+                隶属事业部
+                <input id="jobDepartmentFilter" type="search" placeholder="如：PCG / IEG" />
+              </label>
+              <label>
+                BASE地点
+                <input id="jobBaseFilter" type="search" placeholder="如：深圳" />
+              </label>
+              <button class="secondary-btn" type="button" id="resetJobFilters">重置筛选</button>
+            </div>
+            <div class="job-actions">
+              <label><input type="checkbox" id="selectAllJobs" /> 全选</label>
+              <button class="secondary-btn danger-btn" type="button" id="deleteSelectedJobs">删除所选</button>
+              <span id="selectedJobCount">已选择 0 个岗位</span>
+            </div>
+            <button class="secondary-btn view-all-jobs-btn" type="button" id="viewAllJobs">查看全部岗位信息</button>
+            <ul class="job-table" id="hrJobTable">
+            </ul>
+            <div class="all-jobs-panel" id="allJobsPanel" hidden>
+              <div class="all-jobs-header">
+                <h4>全部岗位信息</h4>
+                <span id="allJobsCount">当前展示 3 条</span>
+              </div>
+              <div class="all-jobs-list" id="allJobsList"></div>
+            </div>
+          </article>
+
+          <article class="hr-rules-card">
+            <h3>推荐规则配置</h3>
+            <label><input type="checkbox" checked /> 优先匹配学生意向城市</label>
+            <label><input type="checkbox" checked /> 提升JD关键词与简历经历重合度权重</label>
+            <label><input type="checkbox" checked /> 标记“跳一跳够得着”的核心推荐岗位</label>
+            <label><input type="checkbox" /> 对截止时间小于7天的岗位加急提醒</label>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="drawer" id="diagnosis" aria-hidden="true" aria-labelledby="drawerTitle">
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+      <section class="drawer-panel" role="dialog" aria-modal="true">
+        <header class="drawer-header">
+          <div>
+            <p class="eyebrow">Resume Fast Pass</p>
+            <h2 id="drawerTitle">产品运营实习生</h2>
+          </div>
+          <button class="icon-btn" type="button" id="closeDrawer" aria-label="关闭诊断报告">×</button>
+        </header>
+
+        <div class="diagnosis-summary">
+          <div class="match-meter">
+            <strong id="drawerScore">85%</strong>
+            <span>JD匹配度</span>
+          </div>
+          <div>
+            <h3 id="gapTitle">关键词GAP：SQL数据分析表达不足</h3>
+            <p id="gapText">该岗位重视数据驱动增长，但简历中“处理数据”的表达过泛，建议补充工具、数据规模、分析动作和业务结果。</p>
+          </div>
+        </div>
+
+        <div class="radar-bars" aria-label="匹配度雷达图">
+          <label><span>学历背景</span><i style="--value: 92%"></i></label>
+          <label><span>技能匹配</span><i id="skillBar"></i></label>
+          <label><span>项目经历</span><i id="projectBar"></i></label>
+          <label><span>行业理解</span><i id="industryBar"></i></label>
+        </div>
+
+        <div class="keyword-gap">
+          <h3>JD关键词GAP</h3>
+          <div id="gapTags"></div>
+        </div>
+
+        <div class="rewrite-compare">
+          <article>
+            <h3>原简历表述</h3>
+            <p id="beforeText">参与用户增长活动，处理数据并完成复盘。</p>
+          </article>
+          <article class="after-card">
+            <h3>AI优化后表述</h3>
+            <p id="afterText">运用 SQL 提取并分析 10w+ 行用户行为数据，定位活动转化流失环节，产出运营优化报告，使报名转化率提升 15%。</p>
+            <button class="copy-btn" type="button" id="copyBtn">一键复制优化文案</button>
+          </article>
+        </div>
+      </section>
+    </aside>
+
+    <aside class="login-modal" id="loginModal" aria-hidden="true" aria-labelledby="loginTitle">
+      <div class="login-backdrop" id="loginBackdrop"></div>
+      <section class="login-panel" role="dialog" aria-modal="true">
+        <header class="login-header">
+          <div>
+            <p class="eyebrow">Tencent Account</p>
+            <h2 id="loginTitle">登录腾讯校招智能体</h2>
+          </div>
+          <button class="icon-btn" type="button" id="closeLogin" aria-label="关闭登录弹窗">×</button>
+        </header>
+
+        <div class="role-tabs" role="tablist" aria-label="登录身份">
+          <button class="role-tab active" type="button" data-role="student">学生端</button>
+          <button class="role-tab" type="button" data-role="hr">HR端</button>
+        </div>
+
+        <div class="login-tabs" role="tablist" aria-label="登录方式">
+          <button class="login-tab active" type="button" data-login="wechat">微信</button>
+          <button class="login-tab" type="button" data-login="phone">手机号</button>
+          <button class="login-tab" type="button" data-login="qq">QQ</button>
+          <button class="login-tab" type="button" data-login="email">邮箱</button>
+        </div>
+
+        <div class="login-content" id="loginContent"></div>
+      </section>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
